@@ -1,7 +1,6 @@
 /*
-@Author: Joke-Lin
-@Time: 2020-03-19
-@Encoding: GB 2312
+*@Author: keviness
+*@Time: 2020-04-24
 */
  
 #include<stdio.h>
