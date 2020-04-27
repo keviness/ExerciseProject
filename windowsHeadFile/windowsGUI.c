@@ -5,28 +5,31 @@
 #include <windows.h>
 #include <conio.h>
 #define SIZE 40
-char *s_gets(char *st, int n);
+//char *s_gets(char *st, int n);
 void gotoxy(int x, int y);
+void gotoprint(int height, int width);
+
 int main(void)
 {
     char info[SIZE];
-    int x, y;
+    int width, height;
     hindenCursor();
     gotoxy(10, 10);
-    puts("Enter your information:");
-    while (s_gets(info, SIZE) && info[0]!='\0')
+    puts("Enter the width and the height rectangle:");
+    gotoxy(10, 12);
+    while (scanf("%d:%d", &width, &height) == 2)
     {
+        system("cls");
+        gotoprint(width, height);
         gotoxy(10, 16);
-        puts("Enter the position:");
-        scanf("%d:%d", &x, &y);
+        puts("Enter the next width and height of the rectangle:");
+        gotoxy(10, 22);
         while (getchar() != '\n')
+        {
             continue;
-        gotoxy(x, y);
-        printf("%s", info);
-        gotoxy(x, y+1);
-        puts("Enter the next info:");
+        }
     }
-    gotoxy(10, 40);
+    gotoxy(10, 30);
     puts("The done~");
 
     return 0;
@@ -50,6 +53,26 @@ void hindenCursor(void)
     SetConsoleCursorInfo(handle, &cursor_info);
 }
 
+void gotoprint(int width, int height)
+{
+    int i;
+    for (i=0; i<=width; i+=2)
+    {
+        gotoxy(i, 0);
+        printf("-");
+        gotoxy(i, height);
+        printf("-");
+    }
+    for (i=1; i<height; i++)
+    {
+        gotoxy(0, i);
+        printf("|");
+        gotoxy(width, i);
+        printf("|");
+    }
+}
+
+/*
 char *s_gets(char *str, int num)
 {
     char *ptr;
@@ -68,3 +91,4 @@ char *s_gets(char *str, int num)
     }
     return ptr;
 }
+*/
