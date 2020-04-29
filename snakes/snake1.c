@@ -4,6 +4,7 @@
 #include <time.h>
 #include <conio.h>//控制台输入输出头文件
 #include <stdbool.h>
+
 #define SNAKESIZE 100//蛇的身体最大节数
 #define MAPWIDTH 118 //宽度
 #define MAPHEIGHT 29//高度
@@ -165,7 +166,15 @@ void keyDown()
         gotoxy(snake.x[i], snake.y[i]);
 		printf("*");
 	}
-   
+/*
+	for (int i=1; i<snake.len; i++)
+	{
+		snake.x[i] = snake.x[i-1];
+		snake.y[i] = snake.y[i-1];
+		gotoxy(snake.x[i], snake.y[i]);
+		printf("*");
+	}
+*/
 	//蛇当前移动的方向不能和前一次的方向相反，比如蛇往左走的时候不能直接按右键往右走
 	//如果当前移动方向和前一次方向相反的话，把当前移动的方向改为前一次的方向
 	if (pre_key == 72 && key == 80)
