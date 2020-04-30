@@ -8,7 +8,7 @@
 //char *s_gets(char *st, int n);
 void gotoxy(int x, int y);
 void gotoprint(int height, int width);
-
+void hidenCursor(void);
 int main(void)
 {
     char info[SIZE];
